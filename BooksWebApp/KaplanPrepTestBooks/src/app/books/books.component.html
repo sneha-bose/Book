@@ -1,0 +1,124 @@
+<div class="container-fluid wrapper">
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+      <div
+        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+      >
+        <a
+          href="/"
+          class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-muted text-decoration-none"
+        >
+          <i class="fas fa-bars"></i
+          >&nbsp;&nbsp;&nbsp;&nbsp;<span class="d-none d-sm-inline">Menu</span>
+        </a>
+        <ul
+          class="nav nav-pills flex-column mb-sm-auto pb-3 mb-md-0 me-md-auto align-items-center align-items-sm-start"
+          id="menu"
+        >
+          <li>
+            <a
+              class="px-0 align-middle text-muted text-decoration-none"
+              (click)="toggling()"
+            >
+              <i class="fas fa-book"></i>&nbsp;&nbsp;
+              <span class="ms-1 d-none d-sm-inline">Content Management</span>
+              &nbsp;&nbsp;<i class="fas fa-angle-down ms-1 d-none d-sm-inline"></i
+            ></a>
+            <ul
+              *ngIf="!toggle"
+              class="nav flex-column ms-1"
+              id="submenu1"
+              data-bs-parent="#menu"
+            >
+              <li class="w-100">
+                <a class="px-0">
+                  <span class="d-none d-sm-inline text-muted">Content One</span>
+                  1
+                </a>
+              </li>
+              <li>
+                <a class="npx-0">
+                  <span class="d-none d-sm-inline text-muted">Content Two</span>
+                  2
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="px-0 align-middle text-decoration-none text-muted">
+              <i class="fas fa-book"></i>&nbsp;&nbsp;
+              <span class="ms-1 d-none d-sm-inline">Courses</span></a
+            >
+          </li>
+        </ul>
+        <hr />
+      </div>
+    </div>
+    <div
+      class="col border border-left shadow-large"
+      style="background-color: #f9f9f9"
+    >
+      <div class="row bg-rounded h-10 pr-2 pt-2 pb-2 bg-white">
+        <img
+          [src]="atomImageUrl"
+          style="width: fit-content; height: auto; border: none; padding: 0"
+          alt="Italian Trulli"
+        />
+      </div>
+      <div class="row justify-content-between h-10 p-3">
+        <div class="col-4">
+          <div class="m-2">
+            <h2><b>Books</b></h2>
+          </div>
+        </div>
+        <div class="col-4">
+          <div>
+            <button type="button" class="btn btn-primary float-right m-2">
+              Create New Book
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row h-90 p-3">
+        <div class="row p-3"><input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search"></div>
+        <div class="row p-3" all-book-Text-color><h4>All Books</h4></div>
+        <div class="container p-2">
+          <div class="row medium-padding100" >
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngFor="let book of bookList| filter:searchText">
+                <div class="card shadow-sm card-item-outstanding">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="card-primary-text">{{book.volumeInfo.title}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div placement="bottom">
+                                    <div class="text-container" >
+                                        <span class="card-secondary-text">Authors:&nbsp;{{book.volumeInfo.authors}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="card-secondary-text">Publisher:&nbsp;{{book.volumeInfo.publisher}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="card-secondary-text">Published Date:&nbsp;{{book.volumeInfo.publishedDate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loadingSymbol" class="k-i-loading"></div>
+</div>

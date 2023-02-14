@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+.k-i-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 64px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: transparent;
+    z-index: 20000;
+    background-image: url(./assets/loading-gif.gif);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 65px 48px;
+    background-position-x: center;
+    background-position-y: center;
+  }
+
+
+.wrapper{
+  position: relative;
+}

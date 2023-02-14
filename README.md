@@ -16,7 +16,7 @@ To run the project:
 *Change the API url in the service file
 *Do ng serve --open 
 
-##Future considerations
+## Future considerations
 *Use Angular maetrial search bar for more nicer look
 *search bar is searching on whole object and not only thr values shown on UI.
 *Create button should open a form and give functionality to add a new book.
